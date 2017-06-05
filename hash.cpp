@@ -30,7 +30,7 @@ struct Word
 
 	bool Next()
 	{
-		if (--Limit == 0)
+		if (Limit-- == 0)
 			return false;
 
 		ssize_t n = Value.size() - 1;
