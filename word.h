@@ -23,7 +23,7 @@ struct Word
 	std::string Value;
 	size_t Limit;
 
-	Word(size_t limit): Limit(limit)
+	Word(size_t limit = (size_t)~0): Limit(limit)
 	{
 		Value.reserve(5);
 	}

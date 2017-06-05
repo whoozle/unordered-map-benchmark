@@ -3,7 +3,7 @@
 
 int main()
 {
-	Word word(100000000);
+	Word word(1000000);
 	std::hash<std::string> hash;
 	while(word.Next())
 	{
