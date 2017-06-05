@@ -1,6 +1,7 @@
 #include <set>
 #include <unordered_set>
 #include "word.h"
+#include "mulshift.h"
 
 #include <benchmark/benchmark.h>
 
@@ -70,5 +71,22 @@ BENCHMARK(unordered_lookup_small);
 static void unordered_lookup_large(benchmark::State& state)
 { lookup_n<Unordered>(state, 1000000);  }
 BENCHMARK(unordered_lookup_large);
+
+
+using CustomUnordered = std::unordered_set<std::string, mul_shift_hash<std::string>>;
+
+
+static void custom_unordered_insert(benchmark::State& state)
+{ insert<CustomUnordered>(state); }
+BENCHMARK(custom_unordered_insert);
+
+static void custom_unordered_lookup_small(benchmark::State& state)
+{ lookup_n<CustomUnordered>(state, 100);  }
+BENCHMARK(custom_unordered_lookup_small);
+
+static void custom_unordered_lookup_large(benchmark::State& state)
+{ lookup_n<CustomUnordered>(state, 1000000);  }
+BENCHMARK(custom_unordered_lookup_large);
+
 
 BENCHMARK_MAIN();
