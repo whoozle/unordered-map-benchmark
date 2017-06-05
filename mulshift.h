@@ -23,6 +23,6 @@ struct mul_shift_hash
 			auto ch = *data++;
 			r += a * ch;
 		}
-		return r & Mask;
+		return r;// & Mask;
 	}
 };
