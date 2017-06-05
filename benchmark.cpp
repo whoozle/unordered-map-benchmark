@@ -1,7 +1,7 @@
 #include <set>
 #include <unordered_set>
 #include "word.h"
-#include "mulshift.h"
+#include "hash.h"
 
 #include <benchmark/benchmark.h>
 
