@@ -10,7 +10,7 @@ struct mul_shift_hash
 {
 	static constexpr size_t Bits = 8 * sizeof(size_t) / 2;
 	static constexpr size_t Mask = (size_t(1) << Bits) - 1;
-	static constexpr size_t A0	= 1818545041; //some random value (rolled myself)
+	static constexpr size_t A0	= 1818545041;	//some random value (rolled myself)
 	static constexpr size_t A	= 1103515245;	//random value from GCC random
 	static constexpr size_t B	= 12345;		//random value from GCC random
 
