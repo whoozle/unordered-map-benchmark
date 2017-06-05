@@ -44,3 +44,24 @@ struct naive_hash
 		return r;
 	}
 };
+
+template<typename T>
+struct python_hash
+{
+	size_t operator() (const T &value) const
+	{
+		size_t r;
+		auto n = value.size();
+		auto data = value.data();
+		if (n != 0)
+		{
+			r = *data << 7;
+			while(--n)
+				r = (1000003 * r) ^ *data++;
+			r ^= value.size();
+		}
+		else
+			r = 0;
+		return r;
+	}
+};
