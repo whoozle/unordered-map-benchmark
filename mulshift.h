@@ -16,13 +16,26 @@ struct mul_shift_hash
 
 	size_t operator() (const T &value) const
 	{
-		size_t r = A0;
 		size_t n = value.size();
 		auto data = value.data();
+#if 0
+		size_t r = A0;
 		for(size_t a = A; n--; ++a) {
 			auto ch = *data++;
 			r += a * ch + B;
 		}
 		return r & Mask;
+#endif
+
+#if 1
+		//naive, similar to std::hash
+		size_t r = 0;
+		while(n--)
+		{
+			auto ch = *data++;
+			r = r * 127 + ch;
+		}
+		return r;
+#endif
 	}
 };
