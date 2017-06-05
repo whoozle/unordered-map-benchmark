@@ -97,7 +97,8 @@ static void unordered_lookup_large_random(benchmark::State& state)
 BENCHMARK(unordered_lookup_large_random);
 
 
-using CustomUnordered = std::unordered_set<std::string, mul_shift_hash<std::string>>;
+//using CustomUnordered = std::unordered_set<std::string, mul_shift_hash<std::string>>;
+using CustomUnordered = std::unordered_set<std::string, naive_hash<std::string>>;
 
 
 static void custom_unordered_insert(benchmark::State& state)
