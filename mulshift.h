@@ -19,10 +19,10 @@ struct mul_shift_hash
 		size_t r = A0;
 		size_t n = value.size();
 		auto data = value.data();
-		for(size_t a = A; n--; ++a) {
+		for(size_t a = A; n--; ++a, r += B) {
 			auto ch = *data++;
 			r += a * ch;
 		}
-		return r;// & Mask;
+		return r & Mask;
 	}
 };
